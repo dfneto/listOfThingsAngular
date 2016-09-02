@@ -28,7 +28,7 @@
 						<input type="text"
 						       class="form-control"
 						       id="name"
-						       ng-model="search.$" //permite pesquisar em todos os atributos do objeto search
+						       ng-model="search"
 						       placeholder="Search name..."
 								/>
 				</div >
@@ -50,7 +50,7 @@
 					<th >Birthday</th >
 				</tr >
 
-				<tr ng-repeat="person in persons | filter:search" //estou passando o objeto search para o filtro
+				<tr ng-repeat="person in persons | filter:sensitiveSearch" //estou passando a função searchSensitive para o filtro
 				    ng-style="{
 				 'background-color': $index == selectedIndex ? 'lightgray' : ''
 				 }"
