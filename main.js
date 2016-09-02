@@ -3,6 +3,7 @@ var app = angular.module('codecraft', []);
 app.controller('PersonsController', function ($scope) {
 
 	$scope.search = "";
+	$scope.order = "email";
 	$scope.selectedIndex = null;
 	$scope.selectedPerson = null;
 
@@ -11,8 +12,6 @@ app.controller('PersonsController', function ($scope) {
 		$scope.selectedPerson = person;
 	};
 
-  //esta função é chamada por cada objeto person in array persons. Se ela retornar true,
-	//a person será adicionada ao array de retorno do filtro
 	$scope.sensitiveSearch = function(person) {
 		if ($scope.search) {
 			return person.name.indexOf($scope.search) == 0 ||
