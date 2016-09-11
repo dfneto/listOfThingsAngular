@@ -1,4 +1,14 @@
-var app = angular.module('codecraft', []);
+var app = angular.module('codecraft', [
+	'ngResource'
+	]);
+
+//Com esse token eu irei autenticar todas minhas requisições http (requisito da API, lembrando que a API é definida pela aplicação servidor).
+app.config(function($httpProvider, $resourceProvider) {
+	$httpProvider.defaults.headers.common['Authorization'] = 'Token 20002cd74d5ce124ae219e739e18956614aab490';	
+	$resourceProvider.defaults.stripTrailingSlashes = false;
+});
+
+
 
 app.controller('PersonDetailController', function ($scope, ContactService) {
 	$scope.contacts = ContactService;
